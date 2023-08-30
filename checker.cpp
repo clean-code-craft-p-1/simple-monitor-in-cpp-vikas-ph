@@ -3,9 +3,9 @@
 using namespace std;
 
 int TestVitalChecker::vitalsOk(float temperature, float pulseRate, float spo2) {
-  if (0 == TestVitalChecker::bodyTemperatureOk(temperature)) ||
-     (0 == TestVitalChecker::pulseRateOk(pulseRate))         ||
-     (0 == TestVitalChecker::oxygenSaturationOk(spo2)) {
+  if ((0 == TestVitalChecker::bodyTemperatureOk(temperature)) ||
+      (0 == TestVitalChecker::pulseRateOk(pulseRate))         ||
+      (0 == TestVitalChecker::oxygenSaturationOk(spo2))) {
     return 0;
   }
 
