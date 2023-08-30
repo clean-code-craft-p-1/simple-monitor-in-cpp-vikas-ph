@@ -9,8 +9,8 @@ void TestVitals() {
 }
 
 void TestBodyTemparature() {
-  assert(!VitalsMonitor::temperatureOk(99));
-  assert(VitalsMonitor::temperatureOk(98.1));
+  assert(!VitalsMonitor::bodyTemperatureOk(99));
+  assert(VitalsMonitor::bodyTemperatureOk(98.1));
 }
 
 void TestPulseRate() {
