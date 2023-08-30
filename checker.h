@@ -14,4 +14,4 @@ int oxygenSaturationOk(float spo2);
 
 }
 
-#endif !CHECKER_H
+#endif //!CHECKER_H

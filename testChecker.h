@@ -12,4 +12,4 @@ void TestOxygenSaturation();
 
 }
 
-#endif !TESTCHECKER_H
+#endif //!TESTCHECKER_H
