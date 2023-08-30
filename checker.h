@@ -5,7 +5,7 @@
 #include <assert.h>
 #include <unistd.h>
 
-namespace VitalsChecker {
+namespace VitalsMonitor {
 
 int vitalsOk(float temperature, float pulseRate, float spo2);
 int bodyTemperatureOk(float temperature);

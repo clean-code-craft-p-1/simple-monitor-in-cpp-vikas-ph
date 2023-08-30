@@ -4,29 +4,29 @@
 using namespace std;
 
 void TestVitals() {
-  assert(!VitalsChecker::vitalsOk(99, 102, 70));
-  assert(VitalsChecker::vitalsOk(98.1, 70, 98));
+  assert(!VitalsMonitor::vitalsOk(99, 102, 70));
+  assert(VitalsMonitor::vitalsOk(98.1, 70, 98));
 }
 
 void TestBodyTemparature() {
-  assert(!VitalsChecker::temperatureOk(99));
-  assert(VitalsChecker::temperatureOk(98.1));
+  assert(!VitalsMonitor::temperatureOk(99));
+  assert(VitalsMonitor::temperatureOk(98.1));
 }
 
 void TestPulseRate() {
-  assert(!VitalsChecker::pulseRateOk(102));
-  assert(VitalsChecker::pulseRateOk(70));
+  assert(!VitalsMonitor::pulseRateOk(102));
+  assert(VitalsMonitor::pulseRateOk(70));
 }
 
 void TestOxygenSaturation() {
-  assert(!VitalsChecker::oxygenSaturationOk(70));
-  assert(VitalsChecker::oxygenSaturationOk(98));
+  assert(!VitalsMonitor::oxygenSaturationOk(70));
+  assert(VitalsMonitor::oxygenSaturationOk(98));
 }
 
 int main() {
-  TestVitalChecker::TestVitals();
-  TestVitalChecker::TestBodyTemparature();
-  TestVitalChecker::TestPulseRate();
-  TestVitalChecker::TestOxygenSaturation();
+  TestVitalsMonitor::TestVitals();
+  TestVitalsMonitor::TestBodyTemparature();
+  TestVitalsMonitor::TestPulseRate();
+  TestVitalsMonitor::TestOxygenSaturation();
   cout << "Done\n";
 }

@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-namespace TestVitalChecker {
+namespace TestVitalsMonitor {
 
 void TestVitals();
 void TestBodyTemparature();
