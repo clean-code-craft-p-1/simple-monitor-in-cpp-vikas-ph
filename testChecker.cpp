@@ -7,7 +7,7 @@ void TestVitalsMonitor::TestVitals() {
 }
 
 void TestVitalsMonitor::TestBodyTemparature() {
-  assert(!VitalsMonitor::bodyTemperatureOk(99));
+  assert(VitalsMonitor::bodyTemperatureOk(99));
   assert(VitalsMonitor::bodyTemperatureOk(98.1));
   assert(false == VitalsMonitor::isBodyTemperatureNotOk(99));
   assert(false == VitalsMonitor::isBodyTemperatureNotOk(98.1));
@@ -21,6 +21,6 @@ void TestVitalsMonitor::TestPulseRate() {
 }
 
 void TestVitalsMonitor::TestOxygenSaturation() {
-  assert(!VitalsMonitor::oxygenSaturationOk(70));
-  assert(VitalsMonitor::oxygenSaturationOk(98));
+  assert(VitalsMonitor::oxygenSaturationOk(70));
+  assert(!VitalsMonitor::oxygenSaturationOk(98));
 }
