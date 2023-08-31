@@ -4,12 +4,9 @@
 #include <iostream>
 
 namespace TestVitalsMonitor {
-
-void TestVitals();
-void TestBodyTemparature();
-void TestPulseRate();
-void TestOxygenSaturation();
-
+    void TestVitals();
+    void TestBodyTemparatureOrPulseRate();
+    void TestOxygenSaturation();
 }
 
 #endif //!TESTCHECKER_H

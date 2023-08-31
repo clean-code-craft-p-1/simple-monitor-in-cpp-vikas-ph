@@ -3,10 +3,21 @@
 using namespace std;
 
 int VitalsMonitor::vitalsOk(float temperature, float pulseRate, float spo2) {
-  return (VitalsMonitor::bodyTemperatureOk(temperature) || VitalsMonitor::pulseRateOk(pulseRate) || VitalsMonitor::oxygenSaturationOk(spo2));
+  int status = 1;
+  if (0 == VitalsMonitor::bodyTemperatureOrPulseRateOk(temperature)) {
+    status = 0;
+  }
+  else if (0 == VitalsMonitor::oxygenSaturationOk(spo2)) {
+    status = 0;
+  }
+  else {
+    status = 1;
+  }
+
+  return status;
 }
 
-int VitalsMonitor::bodyTemperatureOk(float temperature) {
+int VitalsMonitor::bodyTemperatureOrPulseRateOk(float temperature, float pulseRate) {
   if(temperature > 102 || temperature < 95) {
       cout << "Temperature critical!\n";
       for (int i = 0; i < 6; i++)
@@ -18,11 +29,7 @@ int VitalsMonitor::bodyTemperatureOk(float temperature) {
       }
       return 0;
     }
-    return 1;
-}
-
-int VitalsMonitor::pulseRateOk(float pulseRate) {
-  if(pulseRate < 60 || pulseRate > 100) {
+    else if(pulseRate < 60 || pulseRate > 100) {
       cout << "Pulse Rate is out of range!\n";
       for (int i = 0; i < 6; i++)
       {
