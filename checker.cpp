@@ -4,7 +4,7 @@ using namespace std;
 
 int VitalsMonitor::vitalsOk(float temperature, float pulseRate, float spo2) {
   int status = 1;
-  if (0 == VitalsMonitor::bodyTemperatureOrPulseRateOk(temperature)) {
+  if (0 == VitalsMonitor::bodyTemperatureOrPulseRateOk(temperature, pulseRate)) {
     status = 0;
   }
   else if (0 == VitalsMonitor::oxygenSaturationOk(spo2)) {
