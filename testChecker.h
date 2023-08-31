@@ -5,7 +5,7 @@
 
 namespace TestVitalsMonitor {
     void TestVitals();
-    void TestBodyTemparatureOrPulseRate();
+    void TestBodyTemparature();
     void TestPulseRate();
     void TestOxygenSaturation();
 }

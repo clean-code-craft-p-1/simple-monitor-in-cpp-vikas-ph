@@ -15,7 +15,7 @@ int VitalsMonitor::vitalsOk(float temperature, float pulseRate, float spo2) {
 
 int VitalsMonitor::bodyTemperatureOk(float temperature) {
     int status = 1;
-    if(temperature > 102 || temperature < 95) {
+    if(VitalsMonitor::isBodyTemperatureNotOk()) {
       cout << "Temperature critical!\n";
       for (int i = 0; i < 6; i++)
       {
@@ -31,7 +31,7 @@ int VitalsMonitor::bodyTemperatureOk(float temperature) {
 
 int VitalsMonitor::pulseRateOk(float pulseRate) {
     int status = 1;
-    if(pulseRate < 60 || pulseRate > 100) {
+    if(VitalsMonitor::isPulseRateNotOk()) {
       cout << "Pulse Rate is out of range!\n";
       for (int i = 0; i < 6; i++)
       {
@@ -59,4 +59,12 @@ int VitalsMonitor::oxygenSaturationOk(float spo2) {
       status = 0;
     }
     return status;
+}
+
+bool VitalsMonitor::isBodyTemperatureNotOk(float temperature) {
+    return (temperature > 102 || temperature < 95)
+}
+
+bool VitalsMonitor::isPulseRateNotOk(float pulseRate) {
+    return (pulseRate < 60 || pulseRate > 100);
 }
