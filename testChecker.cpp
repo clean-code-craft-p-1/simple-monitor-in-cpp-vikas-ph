@@ -1,8 +1,6 @@
 #include "testChecker.h"
 #include "checker.h"
 
-using namespace std;
-
 void TestVitalsMonitor::TestVitals() {
   assert(!VitalsMonitor::vitalsOk(99, 102, 70));
   assert(VitalsMonitor::vitalsOk(98.1, 70, 98));
