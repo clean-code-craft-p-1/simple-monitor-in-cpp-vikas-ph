@@ -4,7 +4,8 @@ using namespace std;
 
 int main() {
   TestVitalsMonitor::TestVitals();
-  TestVitalsMonitor::TestBodyTemparatureOrPulseRate();
+  TestVitalsMonitor::TestBodyTemparature();
+  TestVitalsMonitor::TestPulseRate();
   TestVitalsMonitor::TestOxygenSaturation();
   cout << "Done\n";
 }
