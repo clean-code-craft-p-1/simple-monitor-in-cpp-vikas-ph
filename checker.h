@@ -10,8 +10,8 @@ namespace VitalsMonitor {
     int bodyTemperatureOk(float temperature);
     int pulseRateOk(float pulseRate);
     int oxygenSaturationOk(float spo2);
-    bool isBodyTemperatureNotOk();
-    bool isPulseRateNotOk();
+    bool isBodyTemperatureNotOk(float temperature);
+    bool isPulseRateNotOk(float pulseRate);
 }
 
 #endif //!CHECKER_H
