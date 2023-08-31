@@ -62,7 +62,7 @@ int VitalsMonitor::oxygenSaturationOk(float spo2) {
 }
 
 bool VitalsMonitor::isBodyTemperatureNotOk(float temperature) {
-    return (temperature > 102 || temperature < 95)
+    return (temperature > 102 || temperature < 95);
 }
 
 bool VitalsMonitor::isPulseRateNotOk(float pulseRate) {
