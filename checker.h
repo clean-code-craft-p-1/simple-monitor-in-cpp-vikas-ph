@@ -12,7 +12,7 @@ namespace VitalsMonitor {
     int  pulseRateOk(float pulseRate);
     int  oxygenSaturationOk(float spo2);
 
-    template <typename DataType> bool isDataWithinRange(const DataType lowerLimit, const DataType upperLimit, const DataType currentValue)
+    template <typename DataType> bool isDataWithinRange(const DataType lowerLimit, const DataType upperLimit, const DataType currentValue);
 }
 
 #endif //!CHECKER_H

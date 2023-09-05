@@ -5,7 +5,7 @@ using namespace std;
 int VitalsMonitor::vitalsOk(float temperature, float pulseRate, float spo2) {
     return (VitalsMonitor::bodyTemperatureOk(temperature) &&
             VitalsMonitor::pulseRateOk(pulseRate)         &&
-            VitalsMonitor::oxygenSaturationOk());
+            VitalsMonitor::oxygenSaturationOk(spo2));
 }
 
 void VitalsMonitor::displayWarningMessage(const std::string message) {
