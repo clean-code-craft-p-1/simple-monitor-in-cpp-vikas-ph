@@ -44,7 +44,7 @@ int VitalsMonitor::oxygenSaturationOk(float spo2) {
     int status             = 1;
     const float lowerLimit = 0;
     const float upperLimit = 90;
-    if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, spo2))) {
+    if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, spo2)) {
         VitalsMonitor::displayWarningMessage("Oxygen Saturation out of range!");
         status = 0;
     }
