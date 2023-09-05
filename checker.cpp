@@ -3,68 +3,55 @@
 using namespace std;
 
 int VitalsMonitor::vitalsOk(float temperature, float pulseRate, float spo2) {
-    int status = VitalsMonitor::bodyTemperatureOk(temperature);
-    if (0 != status) {
-        status = VitalsMonitor::pulseRateOk(pulseRate);
-        if(0 != status) {
-            status = VitalsMonitor::oxygenSaturationOk(spo2);
-        }
-    }
-    return status;
+    return (VitalsMonitor::bodyTemperatureOk(temperature) &&
+            VitalsMonitor::pulseRateOk(pulseRate)         &&
+            VitalsMonitor::oxygenSaturationOk());
 }
 
-int VitalsMonitor::bodyTemperatureOk(float temperature) {
-    int status = 1;
-    if(VitalsMonitor::isBodyTemperatureNotOk(temperature)) {
-      cout << "Temperature critical!\n";
-      for (int i = 0; i < 6; i++)
-      {
+void VitalsMonitor::displayWarningMessage(const std::string message) {
+    std::cout << message << std::endl;
+    for (int i = 0; i < 6; i++) {
         cout << "\r* " << flush;
         sleep(1);
         cout << "\r *" << flush;
         sleep(1);
-      }
-      status = 0;
+    }
+}
+
+int VitalsMonitor::bodyTemperatureOk(float temperature) {
+    int status             = 1;
+    const float lowerLimit = 95;
+    const float upperLimit = 102;
+    if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, temperature)) {
+        DisplayWarningMessage("Temperature critical!");
+        status = 0;
     }
     return status;
 }
 
 int VitalsMonitor::pulseRateOk(float pulseRate) {
-    int status = 1;
-    if(VitalsMonitor::isPulseRateNotOk(pulseRate)) {
-      cout << "Pulse Rate is out of range!\n";
-      for (int i = 0; i < 6; i++)
-      {
-        cout << "\r* " << flush;
-        sleep(1);
-        cout << "\r *" << flush;
-        sleep(1);
-      }
-      status = 0;
+    int status             = 1;
+    const float lowerLimit = 60;
+    const float upperLimit = 100;
+    if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, pulseRate)) {
+        DisplayWarningMessage("Pulse Rate is out of range!");
+        status = 0;
     }
     return status;
 }
 
 int VitalsMonitor::oxygenSaturationOk(float spo2) {
-    int status = 1;
-    if(spo2 < 90) {
-      cout << "Oxygen Saturation out of range!\n";
-      for (int i = 0; i < 6; i++)
-      {
-        cout << "\r* " << flush;
-        sleep(1);
-        cout << "\r *" << flush;
-        sleep(1);
-      }
-      status = 0;
+    int status             = 1;
+    const float lowerLimit = 0;
+    const float upperLimit = 90;
+    if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, spo2))) {
+        DisplayWarningMessage("Oxygen Saturation out of range!");
+        status = 0;
     }
     return status;
 }
 
-bool VitalsMonitor::isBodyTemperatureNotOk(float temperature) {
-    return (temperature > 102 || temperature < 95);
-}
-
-bool VitalsMonitor::isPulseRateNotOk(float pulseRate) {
-    return (pulseRate < 60 || pulseRate > 100);
+template DataType;
+bool VitalsMonitor::isDataWithinRange(const DataType lowerLimit, const DataType upperLimit, const DataType currentValue) {
+    return ((currentValue > lowerLimit) || (currentValue < upperLimit))
 }

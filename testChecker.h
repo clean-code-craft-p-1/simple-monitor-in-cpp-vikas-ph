@@ -8,6 +8,7 @@ namespace TestVitalsMonitor {
     void TestBodyTemparature();
     void TestPulseRate();
     void TestOxygenSaturation();
+    void TestDataRange();
 }
 
 #endif //!TESTCHECKER_H
