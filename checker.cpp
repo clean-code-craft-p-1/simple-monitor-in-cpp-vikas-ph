@@ -23,7 +23,7 @@ int VitalsMonitor::bodyTemperatureOk(float temperature) {
     const float lowerLimit = 95;
     const float upperLimit = 102;
     if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, temperature)) {
-        VitalsMonitor::DisplayWarningMessage("Temperature critical!");
+        VitalsMonitor::displayWarningMessage("Temperature critical!");
         status = 0;
     }
     return status;
@@ -34,7 +34,7 @@ int VitalsMonitor::pulseRateOk(float pulseRate) {
     const float lowerLimit = 60;
     const float upperLimit = 100;
     if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, pulseRate)) {
-        VitalsMonitor::DisplayWarningMessage("Pulse Rate is out of range!");
+        VitalsMonitor::displayWarningMessage("Pulse Rate is out of range!");
         status = 0;
     }
     return status;
@@ -45,12 +45,12 @@ int VitalsMonitor::oxygenSaturationOk(float spo2) {
     const float lowerLimit = 0;
     const float upperLimit = 90;
     if(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, spo2))) {
-        VitalsMonitor::DisplayWarningMessage("Oxygen Saturation out of range!");
+        VitalsMonitor::displayWarningMessage("Oxygen Saturation out of range!");
         status = 0;
     }
     return status;
 }
 
 template <typename DataType> bool VitalsMonitor::isDataWithinRange(const DataType lowerLimit, const DataType upperLimit, const DataType currentValue) {
-    return ((currentValue > lowerLimit) || (currentValue < upperLimit))
+    return ((currentValue > lowerLimit) || (currentValue < upperLimit));
 }
