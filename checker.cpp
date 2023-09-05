@@ -51,7 +51,7 @@ int VitalsMonitor::oxygenSaturationOk(float spo2) {
     return status;
 }
 
-template DataType;
+template <typename DataType>;
 bool VitalsMonitor::isDataWithinRange(const DataType lowerLimit, const DataType upperLimit, const DataType currentValue) {
     return ((currentValue > lowerLimit) || (currentValue < upperLimit))
 }
