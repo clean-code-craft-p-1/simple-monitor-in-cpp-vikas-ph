@@ -21,15 +21,26 @@ void TestVitalsMonitor::TestOxygenSaturation() {
     assert(VitalsMonitor::oxygenSaturationOk(98));
 }
 
-void TestVitalsMonitor::TestDataRange()
-{
-    float lowerLimit = 0;
-    float upperLimit = 10;
-    float testValue  = 6;
+void TestVitalsMonitor::TestDataRange() {
+    // Within range
+    const float lowerLimit = 50;
+    const float upperLimit = 100;
+    float testValue        = 56;
     assert(VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, testValue));
 
-    lowerLimit = 50;
-    upperLimit = 100;
+    // upper limit
+    testValue  = 100;
+    assert(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, testValue));
+
+    // lower limit
+    testValue  = 50;
+    assert(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, testValue));
+
+    // Excceed range
     testValue  = 102;
-    assert(VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, testValue));
+    assert(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, testValue));
+
+    // Below range
+    testValue  = 44;
+    assert(!VitalsMonitor::isDataWithinRange(lowerLimit, upperLimit, testValue));
 }

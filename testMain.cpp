@@ -9,4 +9,5 @@ int main() {
     TestVitalsMonitor::TestOxygenSaturation();
     TestVitalsMonitor::TestDataRange();
     cout << "Done\n";
+    return 0;
 }

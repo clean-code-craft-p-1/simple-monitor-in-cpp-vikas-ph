@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <assert.h>
-#include <unistd.h>
+#include <windows.h>
 
 namespace VitalsMonitor {
     int  vitalsOk(float temperature, float pulseRate, float spo2);
