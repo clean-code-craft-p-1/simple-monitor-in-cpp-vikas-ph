@@ -12,9 +12,9 @@ void VitalsMonitor::displayWarningMessage(const std::string message) {
     std::cout << message << std::endl;
     for (int i = 0; i < 6; i++) {
         cout << "\r* " << flush;
-        Sleep(1);
+        sleep(1);
         cout << "\r *" << flush;
-        Sleep(1);
+        sleep(1);
     }
 }
 
