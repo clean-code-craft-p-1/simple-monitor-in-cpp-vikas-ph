@@ -8,8 +8,8 @@ int VitalsMonitor::vitalsOk(float temperature, float pulseRate, float spo2) {
             VitalsMonitor::oxygenSaturationOk(spo2));
 }
 
-void VitalsMonitor::displayWarningMessage(const std::string message) {
-    std::cout << message << std::endl;
+void VitalsMonitor::displayWarningMessage(const std::string& message) {
+    std::cout << message.data() << std::endl;
     for (int i = 0; i < 6; i++) {
         cout << "\r* " << flush;
         sleep(1);
@@ -52,5 +52,5 @@ int VitalsMonitor::oxygenSaturationOk(float spo2) {
 }
 
 template <typename DataType> bool VitalsMonitor::isDataWithinRange(const DataType lowerLimit, const DataType upperLimit, const DataType currentValue) {
-    return (( lowerLimit > currentValue) && (currentValue < upperLimit));
+    return (( lowerLimit < currentValue) && (currentValue < upperLimit));
 }

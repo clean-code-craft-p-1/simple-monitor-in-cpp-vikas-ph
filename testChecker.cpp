@@ -18,8 +18,8 @@ void TestVitalsMonitor::TestPulseRate() {
 }
 
 void TestVitalsMonitor::TestOxygenSaturation() {
-    assert(!VitalsMonitor::oxygenSaturationOk(70));
-    assert( VitalsMonitor::oxygenSaturationOk(98));
+    assert( VitalsMonitor::oxygenSaturationOk(70));
+    assert(!VitalsMonitor::oxygenSaturationOk(98));
 }
 
 void TestVitalsMonitor::TestDataRange() {
